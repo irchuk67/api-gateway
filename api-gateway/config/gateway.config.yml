@@ -1,0 +1,55 @@
+http:
+  port: 8080
+admin:
+  port: 9876
+  host: localhost
+apiEndpoints:
+  userService:
+    host: localhost
+    path: ['/api/users', '/api/users/*']
+  taskService:
+    host: localhost
+    path: [ '/api/tasks', '/api/tasks/*' ]
+serviceEndpoints:
+  userService:
+    url: 'http://localhost:7000'
+  taskService:
+    url: 'http://localhost:8000'
+policies:
+  - proxy
+  - log
+pipelines:
+#  default:
+#    apiEndpoints:
+#      - userService
+#      - taskService
+#    policies:
+#    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+#    # - key-auth:
+#      - proxy:
+#          - action:
+#              serviceEndpoint: userService
+#              changeOrigin: true
+#          - action:
+#              serviceEndpoint: taskService
+#              changeOrigin: true
+  userServicePipeline:
+    apiEndpoints:
+      - userService
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: userService
+              changeOrigin: true
+  taskServicePipeline:
+    apiEndpoints:
+      - taskService
+    policies:
+    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+    # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: taskService
+              changeOrigin: true
