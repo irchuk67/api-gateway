@@ -6,7 +6,7 @@ admin:
 apiEndpoints:
   userService:
     host: localhost
-    path: ['/api/users', '/api/users/*']
+    path: ['/api/users', '/api/users/*', '/api/auth']
   taskService:
     host: localhost
     path: [ '/api/tasks', '/api/tasks/*' ]
