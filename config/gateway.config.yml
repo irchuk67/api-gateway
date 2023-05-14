@@ -19,26 +19,26 @@ policies:
   - proxy
   - log
 pipelines:
-#  default:
-#    apiEndpoints:
-#      - userService
-#      - taskService
-#    policies:
-#    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
-#    # - key-auth:
-#      - proxy:
-#          - action:
-#              serviceEndpoint: userService
-#              changeOrigin: true
-#          - action:
-#              serviceEndpoint: taskService
-#              changeOrigin: true
+  #  default:
+  #    apiEndpoints:
+  #      - userService
+  #      - taskService
+  #    policies:
+  #    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+  #    # - key-auth:
+  #      - proxy:
+  #          - action:
+  #              serviceEndpoint: userService
+  #              changeOrigin: true
+  #          - action:
+  #              serviceEndpoint: taskService
+  #              changeOrigin: true
   userServicePipeline:
     apiEndpoints:
       - userService
     policies:
-    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
-    # - key-auth:
+      # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+      # - key-auth:
       - proxy:
           - action:
               serviceEndpoint: userService
@@ -47,8 +47,8 @@ pipelines:
     apiEndpoints:
       - taskService
     policies:
-    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
-    # - key-auth:
+      # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+      # - key-auth:
       - proxy:
           - action:
               serviceEndpoint: taskService
